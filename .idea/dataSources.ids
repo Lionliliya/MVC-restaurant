@@ -35,6 +35,7 @@
       <column name="position" sqlType="VARCHAR" precision="120" scale="0" nullable="false" jdbcType="12"/>
       <column name="salary" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="dtype" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="photo" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="ORDER_FROM_MENU_ibfk_1" table="ORDER_FROM_MENU" schema="" catalog="restaurantH" columns="employee_id"/>
       <exported-key name="READY_MEALS_ibfk_2" table="READY_MEALS" schema="" catalog="restaurantH" columns="employee_id"/>

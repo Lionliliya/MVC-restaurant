@@ -36,7 +36,10 @@ public class Employee {
     @Column(name = "salary")
     private int salary;
 
-    public Employee(int id, String secondName, String firstName, Date emplDate, String phone, Position position, int salary) {
+    @Column(name = "photo")
+    private String photoLink;
+
+    public Employee(int id, String secondName, String firstName, Date emplDate, String phone, Position position, int salary, String photoLink) {
         this.id = id;
         this.secondName = secondName;
         this.firstName = firstName;
@@ -44,23 +47,26 @@ public class Employee {
         this.phone = phone;
         this.position = position;
         this.salary = salary;
+        this.photoLink = photoLink;
     }
 
-    public Employee(String secondName, String firstName, Date emplDate, String phone, Position position, int salary) {
+    public Employee(String secondName, String firstName, Date emplDate, String phone, Position position, int salary, String photoLink) {
         this.secondName = secondName;
         this.firstName = firstName;
         this.emplDate = emplDate;
         this.phone = phone;
         this.position = position;
         this.salary = salary;
+        this.photoLink = photoLink;
     }
 
-    public Employee(String secondName, String firstName, String phone, Position position, int salary) {
+    public Employee(String secondName, String firstName, String phone, Position position, int salary, String photoLink) {
         this.secondName = secondName;
         this.firstName = firstName;
         this.phone = phone;
         this.position = position;
         this.salary = salary;
+        this.photoLink = photoLink;
     }
 
     public Employee() {}
@@ -121,6 +127,14 @@ public class Employee {
         return firstName;
     }
 
+    public String getPhotoLink() {
+        return photoLink;
+    }
+
+    public void setPhotoLink(String photoLink) {
+        this.photoLink = photoLink;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -134,6 +148,7 @@ public class Employee {
                 '}';
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -145,6 +160,7 @@ public class Employee {
         if (emplDate != null ? !emplDate.equals(employee.emplDate) : employee.emplDate != null) return false;
         if (firstName != null ? !firstName.equals(employee.firstName) : employee.firstName != null) return false;
         if (phone != null ? !phone.equals(employee.phone) : employee.phone != null) return false;
+        if (photoLink != null ? !photoLink.equals(employee.photoLink) : employee.photoLink != null) return false;
         if (position != employee.position) return false;
         if (secondName != null ? !secondName.equals(employee.secondName) : employee.secondName != null) return false;
 
@@ -159,6 +175,7 @@ public class Employee {
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (position != null ? position.hashCode() : 0);
         result = 31 * result + salary;
+        result = 31 * result + (photoLink != null ? photoLink.hashCode() : 0);
         return result;
     }
 }

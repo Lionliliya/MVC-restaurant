@@ -16,12 +16,12 @@
   <link href="/resources/css/carousel.css" rel="stylesheet">
 
 </head>
-<body style="background-color:  #9ccc65 ">
+<body style="background-color:  #ffffff ">
 
   <!--Navigation bar-->
   <div class="navbar-wrapper" style="position: relative;">
   <div class="container">
-    <div class="navbar navbar-inverse navbar-static-top" style="background-color: inherit; border: none;" role="navigation">
+    <div class="navbar navbar-inverse navbar-static-top" style="background-color: #689f38; border: none;" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -55,7 +55,7 @@
 
 
 
-  <div class="container marketing">
+  <div class="container marketing" style="background-color: #ffffff">
     <div class="row">
       <div class="col-lg-8" style="float: none; margin-left: auto; margin-right: auto;">
         <h1 class="text-center" style="margin-top: 0; font-family: 'Minion Pro'; font-size: 80px; color: #e33539 ;">Our team</h1>
@@ -67,9 +67,9 @@
     <div class="row" style="margin-top: 40px;">
       <c:forEach items="${employees}" var="employee">
         <div class="col-lg-4">
-          <img class="img-circle" src="/resources/images/boy.png" width="128" alt="Waiter photo">
-          <h2 style="color: #ffffff;font-size: 30px;">${employee.firstName}</h2>
-          <p style="color: #ffffff;">${employee.position}</p>
+          <img class="img-circle" src="${employee.photoLink}" width="230" alt="Waiter photo">
+          <h2 style="color: #689f38;font-size: 30px;">${employee.firstName}</h2>
+          <img src="/resources/images/broccoli.png" width="24">
 
         </div><!-- /.col-lg-4 -->
       </c:forEach>
