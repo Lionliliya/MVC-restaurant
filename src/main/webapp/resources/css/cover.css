@@ -27,13 +27,21 @@ a:hover {
 html,
 body {
     height: 100%;
-    background-color: #333;
+    background-color: #ffffff;
 }
 body {
-    color: #fff;
+    color: #689f38;
     text-align: center;
     text-shadow: 0 1px 3px rgba(0,0,0,.5);
-    box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+    /*box-shadow: inset 0 0 100px rgba(0,0,0,.5);*/
+    font-family: OpenSans-Regular;
+    font-size: 16px;
+}
+
+@font-face {
+    font-family: Minion Pro Bold Cond;
+    src: url(/resources/fonts/Minion%20Pro%20Bold%20Cond.ttf);
+    font-weight: normal;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
