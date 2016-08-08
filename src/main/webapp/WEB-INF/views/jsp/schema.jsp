@@ -62,88 +62,46 @@
     </div>
   </div>
 
-  <!-- Three columns of text below the carousel -->
-  <div class="row" style="margin-top: 20px;">
-    <div class="col-lg-4">
-      <img class="img-circle" src="/resources/images/slide1.png" alt="Fresh Sandwiches">
-      <h2 class="text-center">Fast</h2>
-
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4" >
-      <img class="img-circle" src="/resources/images/slide2.png" alt="Generic placeholder image">
-      <h2 class="text-center">Fresh</h2>
-
-    </div><!-- /.col-lg-4 -->
-    <%--<div class="col-lg-3">--%>
-    <%--<img class="img-circle" src="/resources/images/slide3.png" alt="Generic placeholder image">--%>
-    <%--<h2 class="text-center" style="color: #689f38;font-size: 30px;">Healthy</h2>--%>
-
-    <%--</div><!-- /.col-lg-4 -->--%>
-    <div class="col-lg-4">
-      <img class="img-circle" src="/resources/images/slide4.png" alt="Generic placeholder image">
-      <h2 class="text-center">Tasty</h2>
-    </div><!-- /.col-lg-4 -->
-
-  </div><!-- /.row -->
-
-  <!-- START THE FEATURETTES -->
+  <div class="col-md-8" style="float: none; margin: 0 auto;">
+    <h1 class="text-center" style="margin-top: 0; font-family: 'OpenSans-Light'; font-size: 30px; color: #689f38 ;"><strong>Fresh Point Cafe hall plan</strong></h1>
+    <img src="/resources/images/schema.png" width="450" style="display: block; float: none; margin: 0 auto;">
+  </div>
 
   <hr class="featurette-divider" style="margin: 20px 0;">
 
   <div class="row featurette">
     <div class="col-md-7">
-      <h2 class="featurette-heading">Flexible meal time.<span class="text-muted">It'll blow your mind.</span></h2>
-      <p class="lead">You no longer need to choose between a fast food to save time, and a
-        restaurant to have quality dinner. In the Fresh Point we have
-        combined fast service and restaurant food quality.</p>
+      <h2 class="featurette-heading" style="font-size: 35px; margin-top: 50px;">Nice and comfortable</h2>
     </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-responsive" src="/resources/images/sandwichSalomon.png" alt="Fresh Point sandwiches">
+    <div class="col-md-3">
+      <img class="featurette-image img-responsive" src="/resources/images/gallery1.png" width="250" alt="Fresh Point">
     </div>
   </div>
 
-  <hr class="featurette-divider">
+  <hr class="featurette-divider" style="margin: 10px 10px;">
 
   <div class="row featurette">
-    <div class="col-md-5">
-      <img class="featurette-image img-responsive" src="/resources/images/fresgSoup.png" alt="Fresh point salad">
+    <div class="col-md-3">
+      <img class="featurette-image img-responsive" src="/resources/images/gallery2.png" width="250" alt="Fresh point">
     </div>
     <div class="col-md-7">
-      <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-      <p class="lead">In the Fresh Point you can fully enjoy your breakfast or lunch.
-        Every day you can choose from two soups, 4 hot dishes, as well as more
-        than 20 kinds of sandwiches, baguettes and raps, cereal, omelets, salads,
-        desserts, cakes, snacks and drinks.</p>
+      <h2 class="featurette-heading" style="font-size: 35px; margin-top: 50px;">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+
     </div>
   </div>
 
-  <hr class="featurette-divider">
+  <hr class="featurette-divider" style="margin: 10px 10px;">
 
   <div class="row featurette">
     <div class="col-md-7">
-      <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-      <p class="lead">Fresh Point Menu collected the best and most popular dishes from different countries,
-        which are prepared according to recipes top chefs of the world. Salmon with a crust
-        of Parmesan cheese, tomato soup with ginger or lemon cake with rum and apricot glaze -
-        all this you can try to Fresh Point.</p>
+      <h2 class="featurette-heading" style="font-size: 35px; margin-top: 50px;">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
     </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-responsive" src="/resources/images/saladFresh.png" alt="Generic placeholder image">
+    <div class="col-md-3">
+      <img class="featurette-image img-responsive" src="/resources/images/gallery3.png" width="250" alt="Fresh Point">
     </div>
   </div>
 
-  <hr class="featurette-divider">
-
-  <!-- /END THE FEATURETTES -->
-
-
-
-  <%--<!-- FOOTER -->--%>
-  <%--<div class="mastfoot" style="padding: 40px 25px; background-color: #689f38;">--%>
-    <%--<div class="inner">--%>
-      <%--<p class="text-center" style="color: #ffffff;"><img src="/resources/images/apple(2).png" width="24"> 2016 Fresh Point Cafe, <strong>Taras Shevchenko Blvd. 4 </strong><img src="/resources/images/apple(2).png" width="24"></p>--%>
-    <%--</div>--%>
-  <%--</div>--%>
+  <hr class="featurette-divider" style="margin: 10px 10px;">
 
 </div><!-- /.container -->
 <div id="footer">

@@ -24,6 +24,11 @@ public class MainController {
         return modelAndView;
     }
 
-
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public ModelAndView contact() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("contact");
+        return modelAndView;
+    }
 
 }
