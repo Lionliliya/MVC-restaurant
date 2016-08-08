@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -98,7 +99,10 @@ public class MenuDAOImpl implements MenuDAO {
     @Override
     @Transactional
     public List<Menu> getAllMenu() {
-        return sessionFactory.getCurrentSession().createCriteria(Menu.class).list();
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select e from Menu e order by e.id");
+        List<Menu> menus = query.getResultList();
+        return menus;
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

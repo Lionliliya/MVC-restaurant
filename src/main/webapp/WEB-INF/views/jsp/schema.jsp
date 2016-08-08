@@ -138,14 +138,23 @@
 
 
 
-  <!-- FOOTER -->
-  <div class="mastfoot" style="padding: 40px 25px; background-color: #689f38;">
-    <div class="inner">
-      <p class="text-center" style="color: #ffffff;"><img src="/resources/images/apple(2).png" width="24"> 2016 Fresh Point Cafe, <strong>Taras Shevchenko Blvd. 4 </strong><img src="/resources/images/apple(2).png" width="24"></p>
-    </div>
-  </div>
+  <%--<!-- FOOTER -->--%>
+  <%--<div class="mastfoot" style="padding: 40px 25px; background-color: #689f38;">--%>
+    <%--<div class="inner">--%>
+      <%--<p class="text-center" style="color: #ffffff;"><img src="/resources/images/apple(2).png" width="24"> 2016 Fresh Point Cafe, <strong>Taras Shevchenko Blvd. 4 </strong><img src="/resources/images/apple(2).png" width="24"></p>--%>
+    <%--</div>--%>
+  <%--</div>--%>
 
 </div><!-- /.container -->
+<div id="footer">
+  <div class="container" style="padding: 40px 25px; background-color: #689f38;">
+    <p class="text-center" style="color: #ffffff;">
+      <img src="/resources/images/apple(2).png" width="24">
+      2016 Fresh Point Cafe, <strong>Taras Shevchenko Blvd. 4 </strong>
+      <img src="/resources/images/apple(2).png" width="24">
+    </p>
+  </div>
+</div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

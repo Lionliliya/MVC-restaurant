@@ -19,6 +19,12 @@ body {
   font-weight: normal;
 }
 
+@font-face {
+  font-family: OpenSans-Light;
+  src: url(/resources/fonts/OpenSans-Light.ttf);
+  font-style: normal;
+}
+
 article,
 aside,
 details,
@@ -5328,8 +5334,15 @@ a.thumbnail.active {
   list-style: none;
 }
 .list-group {
+
   padding-left: 0;
   margin-bottom: 20px;
+}
+
+.list-menu {
+ float: none;
+  margin: 0 auto;
+  padding: 10px 15px;"
 }
 .list-group-item {
   position: relative;
@@ -5340,8 +5353,8 @@ a.thumbnail.active {
   border: 1px solid #ddd;
 }
 .list-group-item:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  /*border-top-left-radius: 4px;*/
+  /*border-top-right-radius: 4px;*/
 }
 .list-group-item:last-child {
   margin-bottom: 0;
@@ -5390,8 +5403,10 @@ button.list-group-item {
 .list-group-item.active:focus {
   z-index: 2;
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #689f38;
+  border-color: #689f38;
+  font-family: OpenSans-Light, serif;
+  font-size: larger;
 }
 .list-group-item.active .list-group-item-heading,
 .list-group-item.active:hover .list-group-item-heading,

@@ -1,6 +1,8 @@
 package com.gmail.liliyayalovchenko.domain;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.List;
@@ -33,6 +35,7 @@ public class Dish {
     @JoinTable(name = "DISH_INGTREDIENTS",
             joinColumns = @JoinColumn(name = "dish_id"),
             inverseJoinColumns = @JoinColumn(name = "ingred_id"))
+    @LazyCollection(LazyCollectionOption.FALSE)
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private List<Ingredient> ingredients;
 
@@ -104,6 +107,8 @@ public class Dish {
     public Menu getMenu() {
         return menu;
     }
+
+
 
     @Override
     public boolean equals(Object o) {
