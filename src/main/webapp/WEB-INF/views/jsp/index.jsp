@@ -48,6 +48,13 @@
                             </ul>
                         </li>
                     </ul>
+                    <form class="navbar-form navbar-right" role="form" action="/search" method="post">
+                        <div class="form-group">
+                            <input type="text" name="pattern" placeholder="Type dish name" class="form-control">
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </form>
                 </div>
             </div>
         </div>

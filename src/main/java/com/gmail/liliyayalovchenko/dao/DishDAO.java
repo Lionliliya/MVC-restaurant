@@ -15,4 +15,6 @@ public interface DishDAO {
     Dish getDishByName(String dishName);
 
     Dish getDishById(int dishId);
+
+    List<Dish> search(String pattern);
 }

@@ -9,6 +9,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Query;
 import java.util.List;
 
 public class DishDAOImpl implements DishDAO {
@@ -60,6 +61,14 @@ public class DishDAOImpl implements DishDAO {
         } else {
             throw new RuntimeException("Cant get dish by this id! Error");
         }
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.MANDATORY)
+    public List<Dish> search(String pattern){
+        Query query = sessionFactory.getCurrentSession().createQuery("SELECT d FROM Dish d WHERE d.name LIKE :pattern", Dish.class);
+        query.setParameter("pattern", "%" + pattern + "%");
+        return (List<Dish>)query.getResultList();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

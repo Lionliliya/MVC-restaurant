@@ -24,6 +24,14 @@ public class DishController {
         return model;
     }
 
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public ModelAndView search(@RequestParam(value = "pattern") String pattern) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("dishes", dishService.search(pattern));
+        modelAndView.setViewName("search");
+        return modelAndView;
+    }
+
     @Autowired
     public void setDishService(DishService dishService) {
         this.dishService = dishService;

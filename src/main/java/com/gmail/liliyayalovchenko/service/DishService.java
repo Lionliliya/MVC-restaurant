@@ -5,6 +5,8 @@ import com.gmail.liliyayalovchenko.domain.Dish;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public class DishService {
 
     private DishDAO dishDAO;
@@ -14,7 +16,10 @@ public class DishService {
         return dishDAO.getDishByName(dishName);
     }
 
-
+    @Transactional
+    public List<Dish> search(String pattern) {
+        return dishDAO.search(pattern);
+    }
     @Autowired
     public void setDishDAO(DishDAO dishDAO) {
         this.dishDAO = dishDAO;

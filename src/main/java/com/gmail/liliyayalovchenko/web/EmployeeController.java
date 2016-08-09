@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Map;
@@ -29,17 +27,6 @@ public class EmployeeController {
         return "employees";
     }
 
-    @RequestMapping(value = "/employee", method = RequestMethod.GET)
-    public ModelAndView employee(@RequestParam("employeeName") String employeeName,
-                           @RequestParam("employeeSurname") String employeeSurname) {
-        LOGGER.info("Try to get employee by name in controller");
-        Employee employee = employeeService.getEmployeeByName(employeeName, employeeSurname);
-        LOGGER.info("All employees are got in controller");
-        ModelAndView model = new ModelAndView();
-        model.addObject("employee", employee);
-        model.setViewName("employee");
-        return model;
-    }
 
     @Autowired
     public void setEmployeeService(EmployeeService employeeService) {
