@@ -3,6 +3,7 @@ package com.gmail.liliyayalovchenko.domain;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "INGREDIENT")
@@ -18,10 +19,18 @@ public class Ingredient {
     @Column(name = "name")
     private String name;
 
+    @ManyToMany(mappedBy = "ingredients")
+    private List<Dish> dishList;
+
     public Ingredient() {}
 
     public Ingredient(String name) {
         this.name = name;
+    }
+
+    public Ingredient(String name, List<Dish> dishList) {
+        this.name = name;
+        this.dishList = dishList;
     }
 
     public int getId() {
@@ -40,7 +49,13 @@ public class Ingredient {
         this.name = name;
     }
 
+    public List<Dish> getDishList() {
+        return dishList;
+    }
 
+    public void setDishList(List<Dish> dishList) {
+        this.dishList = dishList;
+    }
 
     @Override
     public boolean equals(Object o) {

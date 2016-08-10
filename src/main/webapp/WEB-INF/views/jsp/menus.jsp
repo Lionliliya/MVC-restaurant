@@ -88,7 +88,7 @@
             <li style="font-family: OpenSans-Light; font-size: medium;">
               <div class="row">
                 <div class="col-xs-4">
-                  <a href="/dish?dishName=${dish.name}"><img src="/resources/images/dish1.png" style="float: left; padding: 5px 0;"></a>
+                  <a href="/dish?dishName=${dish.name}"><img src="${dish.photoLink}" style="float: left; padding: 5px 0;"></a>
                 </div>
                 <div class="col-xs-4">
                   <h3 class="text-center" style="font-size: medium;">

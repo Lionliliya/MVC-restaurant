@@ -7,5 +7,11 @@
       <schema-pattern>restaurantH.*</schema-pattern>
       <default-schemas>restaurantH.*</default-schemas>
     </data-source>
+    <data-source name="MySQL - RestaurantCRM@localhost" uuid="269518ec-56b2-4869-ac38-6787ca846cdc">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>RestaurantCRM.*</schema-pattern>
+      <default-schemas>RestaurantCRM.*</default-schemas>
+    </data-source>
   </component>
 </project>

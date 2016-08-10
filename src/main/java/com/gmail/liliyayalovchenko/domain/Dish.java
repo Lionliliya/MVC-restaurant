@@ -32,9 +32,9 @@ public class Dish {
     private int weight;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "DISH_INGTREDIENTS",
+    @JoinTable(name = "DISH_INGREDIENTS",
             joinColumns = @JoinColumn(name = "dish_id"),
-            inverseJoinColumns = @JoinColumn(name = "ingred_id"))
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     @LazyCollection(LazyCollectionOption.FALSE)
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private List<Ingredient> ingredients;
@@ -43,18 +43,29 @@ public class Dish {
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
-    public Dish(String name, DishCategory dishCategory, double price, int weight, List<Ingredient> ingredients, Menu menu) {
+    @Column(name = "photo")
+    private String photoLink;
+
+    public Dish(String name, DishCategory dishCategory, double price, int weight, List<Ingredient> ingredients, Menu menu, String photoLink) {
         this.name = name;
         this.dishCategory = dishCategory;
         this.price = price;
         this.weight = weight;
         this.ingredients = ingredients;
         this.menu = menu;
+        this.photoLink = photoLink;
+    }
+
+    public Dish(Menu menu, List<Ingredient> ingredients, int weight, double price, DishCategory dishCategory, String name) {
+        this.menu = menu;
+        this.ingredients = ingredients;
+        this.weight = weight;
+        this.price = price;
+        this.dishCategory = dishCategory;
+        this.name = name;
     }
 
     public Dish() {}
-
-
 
     public void setId(int id) {
         this.id = id;
@@ -108,6 +119,18 @@ public class Dish {
         return menu;
     }
 
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+
+    }
+
+    public String getPhotoLink() {
+        return photoLink;
+    }
+
+    public void setPhotoLink(String photoLink) {
+        this.photoLink = photoLink;
+    }
 
 
     @Override
@@ -164,8 +187,5 @@ public class Dish {
         return inrgredientsPrint.toString();
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
 
-    }
 }

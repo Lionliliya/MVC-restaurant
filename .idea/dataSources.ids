@@ -94,4 +94,86 @@
       <foreign-key name="WAREHOUSE_ibfk_1" columns="ingred_id" ref-table="INGREDIENT" ref-schema="" ref-catalog="restaurantH" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
   </data-source>
+  <data-source name="MySQL - RestaurantCRM@localhost" uuid="269518ec-56b2-4869-ac38-6787ca846cdc">
+    <database-info product="MySQL" version="5.7.13-0ubuntu0.16.04.2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="RestaurantCRM"/>
+    <table name="DISH" schema="" catalog="RestaurantCRM" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="120" scale="0" nullable="false" jdbcType="12"/>
+      <column name="category" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="DECIMAL" precision="5" scale="1" nullable="true" jdbcType="3"/>
+      <column name="weight" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="menu_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="photo" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="dish_fk" table="DISH_INGREDIENT" schema="" catalog="RestaurantCRM" columns="dish_id"/>
+      <exported-key name="ORDER_DISH_ibfk_2" table="ORDER_DISH" schema="" catalog="RestaurantCRM" columns="dish_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="DISH_INGREDIENT" schema="" catalog="RestaurantCRM" type="TABLE">
+      <column name="dish_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ingredient_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="dish_id,ingredient_id"/>
+      <foreign-key name="dish_fk" columns="dish_id" ref-table="DISH" ref-schema="" ref-catalog="RestaurantCRM" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="ingred_fk" columns="ingredient_id" ref-table="INGREDIENT" ref-schema="" ref-catalog="RestaurantCRM" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="ingred_fk" unique="false" columns="ingredient_id"/>
+    </table>
+    <table name="EMPLOYEE" schema="" catalog="RestaurantCRM" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="second_name" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="empl_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="phone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="position" sqlType="VARCHAR" precision="120" scale="0" nullable="false" jdbcType="12"/>
+      <column name="salary" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dtype" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="photo" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="ORDER_FROM_MENU_ibfk_1" table="ORDER_FROM_MENU" schema="" catalog="RestaurantCRM" columns="employee_id"/>
+    </table>
+    <table name="INGREDIENT" schema="" catalog="RestaurantCRM" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="ingred_fk" table="DISH_INGREDIENT" schema="" catalog="RestaurantCRM" columns="ingredient_id"/>
+      <exported-key name="WAREHOUSE_ibfk_1" table="WAREHOUSE" schema="" catalog="RestaurantCRM" columns="ingred_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="MENU" schema="" catalog="RestaurantCRM" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="photo" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="ORDER_DISH" schema="" catalog="RestaurantCRM" type="TABLE">
+      <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="dish_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <foreign-key name="ORDER_DISH_ibfk_1" columns="order_id" ref-table="ORDER_FROM_MENU" ref-schema="" ref-catalog="RestaurantCRM" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="ORDER_DISH_ibfk_2" columns="dish_id" ref-table="DISH" ref-schema="" ref-catalog="RestaurantCRM" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="ORDER_FROM_MENU" schema="" catalog="RestaurantCRM" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="order_num" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="employee_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="table_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="order_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="ORDER_FROM_MENU_ibfk_1" columns="employee_id" ref-table="EMPLOYEE" ref-schema="" ref-catalog="RestaurantCRM" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="ORDER_DISH_ibfk_1" table="ORDER_DISH" schema="" catalog="RestaurantCRM" columns="order_id"/>
+      <index name="order_num" unique="true" columns="order_num"/>
+    </table>
+    <table name="WAREHOUSE" schema="" catalog="RestaurantCRM" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ingred_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="WAREHOUSE_ibfk_1" columns="ingred_id" ref-table="INGREDIENT" ref-schema="" ref-catalog="RestaurantCRM" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+  </data-source>
 </component>

@@ -50,6 +50,15 @@ public class Employee {
         this.photoLink = photoLink;
     }
 
+    public Employee(String secondName, String firstName, Date emplDate, String phone, Position position, int salary) {
+        this.secondName = secondName;
+        this.firstName = firstName;
+        this.emplDate = emplDate;
+        this.phone = phone;
+        this.position = position;
+        this.salary = salary;
+    }
+
     public Employee(String secondName, String firstName, Date emplDate, String phone, Position position, int salary, String photoLink) {
         this.secondName = secondName;
         this.firstName = firstName;
@@ -160,7 +169,6 @@ public class Employee {
         if (emplDate != null ? !emplDate.equals(employee.emplDate) : employee.emplDate != null) return false;
         if (firstName != null ? !firstName.equals(employee.firstName) : employee.firstName != null) return false;
         if (phone != null ? !phone.equals(employee.phone) : employee.phone != null) return false;
-        if (photoLink != null ? !photoLink.equals(employee.photoLink) : employee.photoLink != null) return false;
         if (position != employee.position) return false;
         if (secondName != null ? !secondName.equals(employee.secondName) : employee.secondName != null) return false;
 
@@ -175,7 +183,6 @@ public class Employee {
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (position != null ? position.hashCode() : 0);
         result = 31 * result + salary;
-        result = 31 * result + (photoLink != null ? photoLink.hashCode() : 0);
         return result;
     }
 }
