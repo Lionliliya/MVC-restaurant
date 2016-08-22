@@ -26,13 +26,13 @@
        <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
               <property name="messageConverters">
                      <list>
-                            <ref bean="messageConverter"/>
+                            <ref bean="messageConverter" />
                      </list>
               </property>
        </bean>
 
-       <bean id="messageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-
-
+       <bean id="messageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+              <property name="prettyPrint" value="true" />
+       </bean>
 
 </beans>

@@ -1,6 +1,10 @@
 package com.gmail.liliyayalovchenko.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.List;
@@ -8,6 +12,8 @@ import java.util.List;
 @Entity
 @Table(name = "MENU")
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@JsonIgnoreProperties(ignoreUnknown = false)
+@Proxy(lazy = false)
 public class Menu {
 
     @Id
@@ -20,6 +26,7 @@ public class Menu {
     private String name;
 
     @OneToMany(fetch= FetchType.EAGER, orphanRemoval=true, mappedBy="menu")
+    @LazyCollection(LazyCollectionOption.FALSE)
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private List<Dish> dishList;
 

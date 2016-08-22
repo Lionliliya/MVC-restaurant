@@ -30,17 +30,17 @@ public class EmployeeAPI {
 
     /**Method that gets the employee by id**/
     @RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
-    public Employee employee(@PathVariable long id) {
-        LOGGER.info("Try to get all employee in controller");
+    public Employee employeeById(@PathVariable int id) {
+        LOGGER.info("Try to get employee by id");
         Employee employeeById = employeeService.getEmployeeById(id);
-        LOGGER.info("All employees are got in controller");
+        LOGGER.info("Employee by id is got");
         return employeeById;
     }
 
     /**Method that gets the employee
      * by first name and second name**/
     @RequestMapping(value = "/employee/{employeeName}/{employeeSecondName}", method = RequestMethod.GET)
-    public Employee employee(@PathVariable String employeeName,
+    public Employee employeeByFullName(@PathVariable String employeeName,
                                    @PathVariable String employeeSecondName) {
         LOGGER.info("Try to get all employee in controller");
         Employee employee = employeeService.getEmployeeByName(employeeName, employeeSecondName);
@@ -50,7 +50,7 @@ public class EmployeeAPI {
 
     /**Method that gets the employees list
      * by first name**/
-    @RequestMapping(value = "/employee/{employeeName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/employee/firstName/{employeeName}", method = RequestMethod.GET)
     public List<Employee> employeeByFirstName(@PathVariable String employeeName) {
         LOGGER.info("Try to get all employee by name " + employeeName + " in controller");
         List<Employee> employeesByName = employeeService.getEmployeeByFirstName(employeeName);
@@ -60,7 +60,7 @@ public class EmployeeAPI {
 
     /**Method that gets the employees list
      * by second name**/
-    @RequestMapping(value = "/employee/{employeeSecondName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/employee/secondName/{employeeSecondName}", method = RequestMethod.GET)
     public List<Employee> employeeBySecondName(@PathVariable String employeeSecondName) {
         LOGGER.info("Try to get all employee in controller");
         List<Employee> employeeBySecondName = employeeService.getEmployeeBySecondName(employeeSecondName);

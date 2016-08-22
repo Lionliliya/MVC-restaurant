@@ -1,6 +1,8 @@
 package com.gmail.liliyayalovchenko.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,6 +11,8 @@ import java.util.Date;
 @Table(name = "EMPLOYEE")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@JsonIgnoreProperties(ignoreUnknown = false)
+@Proxy(lazy = false)
 public class Employee {
 
     @Id

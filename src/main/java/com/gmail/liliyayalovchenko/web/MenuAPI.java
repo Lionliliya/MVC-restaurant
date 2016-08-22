@@ -18,8 +18,10 @@ public class MenuAPI {
     private MenuService menuService;
     private static final Logger LOGGER = LoggerFactory.getLogger(MenuAPI.class);
 
-    /**Method returns a list of all the menu
-     * (the menu names only, without the dishes in them)**/
+    /**
+     * Method returns a list of all the menu
+     * (the menu names only, without the dishes in them)
+     * **/
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
     public List<String> menu() {
         LOGGER.info("Try to get all menu names");
@@ -28,9 +30,11 @@ public class MenuAPI {
         return menuNames;
     }
 
-    /**Method that returns a menu by id with
-     * a list of dishes in it**/
-    @RequestMapping(value = "/menu/${id}", method = RequestMethod.GET)
+    /**
+     * Method that returns a menu by id with
+     * a list of dishes in it
+     * **/
+    @RequestMapping(value = "/menu/{id}", method = RequestMethod.GET)
     public Menu menu(@PathVariable int id) {
         LOGGER.info("Try to get menu by id with dishes in it");
         Menu menu = menuService.getMenuById(id);
@@ -39,9 +43,11 @@ public class MenuAPI {
     }
 
 
-    /**Method that returns a menu by name
-     * full menu instance(with dish list, name and id)**/
-    @RequestMapping(value = "/menu/${name}", method = RequestMethod.GET)
+    /**
+     * Method that returns a menu by name
+     * full menu instance(with dish list, name and id)
+     * **/
+    @RequestMapping(value = "/menu/name/{name}", method = RequestMethod.GET)
     public Menu menu(@PathVariable String name) {
         LOGGER.info("Try to get menu by name " + name + " with dishes in it");
         Menu menu = menuService.getMenuByName(name);

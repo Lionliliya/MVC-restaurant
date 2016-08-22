@@ -12,7 +12,7 @@ public class MenuController {
 
     private MenuService menuService;
 
-    @RequestMapping(value = "/menu", method = RequestMethod.GET)
+    @RequestMapping(value = "/menus", method = RequestMethod.GET)
     public ModelAndView menus() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("menus");

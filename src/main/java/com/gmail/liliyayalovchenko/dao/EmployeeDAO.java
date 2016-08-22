@@ -8,7 +8,7 @@ public interface EmployeeDAO {
 
     void save(Employee employee);
 
-    Employee getById(Long id);
+    Employee getById(int id);
 
     List<Employee> findAll();
 

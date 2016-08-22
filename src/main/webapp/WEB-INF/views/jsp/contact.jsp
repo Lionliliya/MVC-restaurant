@@ -38,7 +38,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/" style="background-color: #e33539; color: #ffffff">Home</a></li>
             <li><a href="/employees" style="color: #ffffff;">Our team</a></li>
-            <li><a href="/menu" style="color: #ffffff">Menu</a></li>
+            <li><a href="/menus" style="color: #ffffff">Menu</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" style="color: #ffffff" data-toggle="dropdown">More <b class="caret"></b></a>
               <ul class="dropdown-menu">

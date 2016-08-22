@@ -1,5 +1,6 @@
 package com.gmail.liliyayalovchenko.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Ingredient {
     private String name;
 
     @ManyToMany(mappedBy = "ingredients")
+    @JsonIgnore
     private List<Dish> dishList;
 
     public Ingredient() {}

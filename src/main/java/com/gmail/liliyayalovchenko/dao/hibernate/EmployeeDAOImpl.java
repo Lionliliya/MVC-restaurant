@@ -28,9 +28,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
-    public Employee getById(Long id) {
+    public Employee getById(int id) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Employee employee = (Employee) currentSession.load(Employee.class, id);
+        Employee employee = currentSession.load(Employee.class, id);
         if (employee == null) {
             throw new RuntimeException("Cant get Employee by this id. Wrong id!");
         } else {

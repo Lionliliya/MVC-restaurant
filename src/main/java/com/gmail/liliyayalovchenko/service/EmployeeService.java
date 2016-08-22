@@ -41,7 +41,7 @@ public class EmployeeService {
     }
 
     @Transactional
-    public Employee getEmployeeById(long id) {
+    public Employee getEmployeeById(int id) {
         LOGGER.info("Try to get employee by id");
         Employee employee = employeeDAO.getById(id);
         LOGGER.info("Employee by id " + id +" are got");
