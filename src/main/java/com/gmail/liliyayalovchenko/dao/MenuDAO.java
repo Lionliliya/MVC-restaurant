@@ -25,4 +25,6 @@ public interface MenuDAO {
     List<Menu> getAllMenu();
 
     void showAllMenuNames();
+
+    Menu getMenuById(int id);
 }

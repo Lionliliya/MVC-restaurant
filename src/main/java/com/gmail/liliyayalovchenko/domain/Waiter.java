@@ -1,5 +1,8 @@
 package com.gmail.liliyayalovchenko.domain;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -7,8 +10,9 @@ import java.util.List;
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Waiter extends Employee {
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
+    @LazyCollection(LazyCollectionOption.FALSE)
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private List<Order> orderList;
 

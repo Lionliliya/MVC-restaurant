@@ -1,6 +1,8 @@
 package com.gmail.liliyayalovchenko.domain;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -34,11 +36,12 @@ public class Order {
     @Column(name = "status")
     private OrderStatus status;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany()
     @JoinTable(name = "ORDER_DISH",
                joinColumns = @JoinColumn(name = "order_id"),
                inverseJoinColumns = @JoinColumn(name = "dish_id"))
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Dish> dishList;
 
     public Order(int orderNumber, Employee employeeId, int tableNumber, Date orderDate, OrderStatus status, List<Dish> dishList) {

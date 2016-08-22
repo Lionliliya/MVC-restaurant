@@ -97,12 +97,20 @@ public class MenuDAOImpl implements MenuDAO {
     }
 
     @Override
-    @Transactional
+    @Transactional(propagation = Propagation.MANDATORY)
     public List<Menu> getAllMenu() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select e from Menu e order by e.id");
         List<Menu> menus = query.getResultList();
         return menus;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.MANDATORY)
+    public Menu getMenuById(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Menu menu = session.load(Menu.class, id);
+        return menu;
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

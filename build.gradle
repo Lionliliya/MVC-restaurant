@@ -5,7 +5,7 @@ apply plugin: 'war'
 version = '1.0'
 
 repositories {
-    mavenCentral()
+    jcenter()
     mavenLocal()
 }
 
@@ -19,5 +19,6 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-tx', version: '4.3.1.RELEASE'
     compile group: 'org.springframework', name: 'spring-orm', version: '4.3.1.RELEASE'
     compile group: 'com.mchange', name: 'c3p0', version: '0.9.5.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.1'
 
 }

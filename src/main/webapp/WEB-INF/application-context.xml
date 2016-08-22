@@ -11,4 +11,6 @@
        <bean class="com.gmail.liliyayalovchenko.dao.hibernate.MenuDAOImpl" id="menuDAO"/>
        <bean id="dishDAO" class="com.gmail.liliyayalovchenko.dao.hibernate.DishDAOImpl"/>
 
+
+
 </beans>

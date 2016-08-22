@@ -3,10 +3,12 @@ package com.gmail.liliyayalovchenko.dao.hibernate;
 import com.gmail.liliyayalovchenko.dao.EmployeeDAO;
 import com.gmail.liliyayalovchenko.domain.Employee;
 import com.gmail.liliyayalovchenko.domain.Position;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.util.QDecoderStream;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -83,6 +85,32 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                                      Restrictions.eq("position", Position.WAITRESS)));
         return criteria.list();
     }
+
+    @Override
+    @Transactional(propagation = Propagation.MANDATORY)
+    public List<Employee> getByFirstName(String employeeName) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select  e from Employee e where e.firstName =:employeeName");
+        query.setParameter("employeeName", employeeName);
+        return query.getResultList();
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.MANDATORY)
+    public List<Employee> getBySecondName(String employeeSecondName) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select  e from Employee e where e.secondName =:employeeSecondName");
+        query.setParameter("employeeSecondName",employeeSecondName);
+        return query.getResultList();
+    }
+
+//    @Override
+//    @Transactional(propagation = Propagation.MANDATORY)
+//    public List<Employee> getEmployeesShortList() {
+//        Session session = sessionFactory.getCurrentSession();
+//        Query query = session.createQuery("select  e.firstName, e.secondName from Employee e");
+//        return null;
+//    }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;

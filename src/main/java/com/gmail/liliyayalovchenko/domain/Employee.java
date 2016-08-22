@@ -78,6 +78,11 @@ public class Employee {
         this.photoLink = photoLink;
     }
 
+    public Employee(String secondName, String firstName) {
+        this.secondName = secondName;
+        this.firstName = firstName;
+    }
+
     public Employee() {}
 
     public void setId(int id) {
