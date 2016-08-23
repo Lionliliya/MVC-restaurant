@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MenuService {
@@ -26,17 +25,6 @@ public class MenuService {
     @Transactional
     public Menu getMenuByName(String menuName) {
         return menuDAO.getMenuByName(menuName);
-    }
-
-    @Transactional
-    public List<String> getAllMenusName() {
-        LOGGER.info("Try to get all menu names");
-        List<Menu> menus = menuDAO.getAllMenu();
-        List<String> menuNames = new ArrayList<>();
-        for (Menu menu : menus) {
-            menuNames.add(menu.getName());
-        }
-        return menuNames;
     }
 
     @Transactional

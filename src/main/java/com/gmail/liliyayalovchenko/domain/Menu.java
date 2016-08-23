@@ -1,6 +1,8 @@
 package com.gmail.liliyayalovchenko.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.gmail.liliyayalovchenko.web.JSON_View.Views;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -23,6 +25,7 @@ public class Menu {
     private int id;
 
     @Column(name = "name")
+    @JsonView(Views.Public.class)
     private String name;
 
     @OneToMany(fetch= FetchType.EAGER, orphanRemoval=true, mappedBy="menu")

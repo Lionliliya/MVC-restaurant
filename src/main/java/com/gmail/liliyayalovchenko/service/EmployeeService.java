@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeService {
@@ -62,19 +61,6 @@ public class EmployeeService {
         List<Employee> employees = employeeDAO.getBySecondName(employeeSecondName);
         LOGGER.info("Employee by name " + employeeSecondName +" are got");
         return employees;
-    }
-
-    @Transactional
-    public List<Employee> getAllEmployeesShortList() {
-        LOGGER.info("Try to get all employees only names and second names");
-        List<Employee> employees = employeeDAO.findAll();
-        LOGGER.info("All employees are got.");
-        List<Employee> resultList = new ArrayList<>();
-        for (Employee employee : employees) {
-            Employee employeeShort = new Employee(employee.getSecondName(), employee.getFirstName());
-            resultList.add(employeeShort);
-        }
-        return resultList;
     }
 
     @Autowired

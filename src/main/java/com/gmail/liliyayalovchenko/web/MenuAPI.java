@@ -1,7 +1,9 @@
 package com.gmail.liliyayalovchenko.web;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.gmail.liliyayalovchenko.domain.Menu;
 import com.gmail.liliyayalovchenko.service.MenuService;
+import com.gmail.liliyayalovchenko.web.JSON_View.Views;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,10 @@ public class MenuAPI {
      * (the menu names only, without the dishes in them)
      * **/
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
-    public List<String> menu() {
+    @JsonView(Views.Public.class)
+    public List<Menu> menu() {
         LOGGER.info("Try to get all menu names");
-        List<String> menuNames = menuService.getAllMenusName();
+        List<Menu> menuNames = menuService.getAllMenus();
         LOGGER.info("All menu names are got");
         return menuNames;
     }

@@ -1,6 +1,8 @@
 package com.gmail.liliyayalovchenko.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.gmail.liliyayalovchenko.web.JSON_View.Views;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Proxy;
 
@@ -22,9 +24,11 @@ public class Employee {
     private int id;
 
     @Column(name = "second_name")
+    @JsonView(Views.Public.class)
     private String secondName;
 
     @Column(name = "first_name")
+    @JsonView(Views.Public.class)
     private String firstName;
 
     @Column(name = "empl_date")
@@ -80,11 +84,6 @@ public class Employee {
         this.position = position;
         this.salary = salary;
         this.photoLink = photoLink;
-    }
-
-    public Employee(String secondName, String firstName) {
-        this.secondName = secondName;
-        this.firstName = firstName;
     }
 
     public Employee() {}
