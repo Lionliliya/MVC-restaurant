@@ -1,5 +1,6 @@
 package com.gmail.liliyayalovchenko.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.gmail.liliyayalovchenko.web.JSON_View.Views;
@@ -21,6 +22,7 @@ public class Employee {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "id")
+    @JsonView(Views.Internal.class)
     private int id;
 
     @Column(name = "second_name")
@@ -32,19 +34,25 @@ public class Employee {
     private String firstName;
 
     @Column(name = "empl_date")
+    @JsonView(Views.Internal.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date emplDate;
 
     @Column(name = "phone")
+    @JsonView(Views.Internal.class)
     private String phone;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "position")
+    @JsonView(Views.Internal.class)
     private Position position;
 
     @Column(name = "salary")
+    @JsonView(Views.Internal.class)
     private int salary;
 
     @Column(name = "photo")
+    @JsonView(Views.Internal.class)
     private String photoLink;
 
     public Employee(int id, String secondName, String firstName, Date emplDate, String phone, Position position, int salary, String photoLink) {

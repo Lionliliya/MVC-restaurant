@@ -1,6 +1,9 @@
 package com.gmail.liliyayalovchenko.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.gmail.liliyayalovchenko.web.JSON_View.Views;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -21,23 +24,30 @@ public class Order {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "id")
+    @JsonView(Views.Public.class)
     private int id;
 
     @Column(name = "order_num")
+    @JsonView(Views.Public.class)
     private int orderNumber;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
+    @JsonView(Views.Private.class)
     private Employee employeeId;
 
     @Column(name = "table_num")
+    @JsonView(Views.Public.class)
     private int tableNumber;
 
     @Column(name = "order_date")
+    @JsonView(Views.Public.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private Date orderDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
+    @JsonView(Views.Public.class)
     private OrderStatus status;
 
     @ManyToMany()
@@ -46,6 +56,7 @@ public class Order {
                inverseJoinColumns = @JoinColumn(name = "dish_id"))
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JsonView(Views.Public.class)
     private List<Dish> dishList;
 
     public Order(int orderNumber, Employee employeeId, int tableNumber, Date orderDate, OrderStatus status, List<Dish> dishList) {

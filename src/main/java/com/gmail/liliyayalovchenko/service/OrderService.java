@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public class OrderService {
+
+    @Autowired
     private OrderDAO orderDAO;
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderService.class);
 
@@ -44,11 +46,5 @@ public class OrderService {
         Order order = orderDAO.getOrderById(id);
         LOGGER.info("Order by id " + id + " is got");
         return order;
-    }
-
-
-    @Autowired
-    public void setOrderDAO(OrderDAO orderDAO) {
-        this.orderDAO = orderDAO;
     }
 }

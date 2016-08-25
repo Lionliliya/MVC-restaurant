@@ -12,6 +12,7 @@ import java.util.List;
 
 public class EmployeeService {
 
+    @Autowired
     private EmployeeDAO employeeDAO;
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeService.class);
 
@@ -62,12 +63,4 @@ public class EmployeeService {
         LOGGER.info("Employee by name " + employeeSecondName +" are got");
         return employees;
     }
-
-    @Autowired
-    public void setEmployeeDAO(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
-    }
-
-
-
 }

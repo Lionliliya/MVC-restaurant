@@ -1,6 +1,7 @@
 package com.gmail.liliyayalovchenko.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.gmail.liliyayalovchenko.web.JSON_View.Views;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -15,13 +16,14 @@ public class Ingredient {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "id")
+    @JsonView(Views.Internal.class)
     private int id;
 
     @Column(name = "name")
+    @JsonView(Views.Internal.class)
     private String name;
 
     @ManyToMany(mappedBy = "ingredients")
-    @JsonIgnore
     private List<Dish> dishList;
 
     public Ingredient() {}

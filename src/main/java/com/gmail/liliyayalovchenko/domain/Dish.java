@@ -1,7 +1,8 @@
 package com.gmail.liliyayalovchenko.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.gmail.liliyayalovchenko.web.JSON_View.Views;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -21,19 +22,24 @@ public class Dish {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "id")
+    @JsonView(Views.Public.class)
     private int id;
 
     @Column(name = "name")
+    @JsonView(Views.Public.class)
     private String name;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "category")
+    @JsonView(Views.Public.class)
     private DishCategory dishCategory;
 
     @Column(name = "price")
+    @JsonView(Views.Public.class)
     private double price;
 
     @Column(name = "weight")
+    @JsonView(Views.Public.class)
     private int weight;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -42,11 +48,12 @@ public class Dish {
             inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     @LazyCollection(LazyCollectionOption.FALSE)
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonView(Views.Internal.class)
     private List<Ingredient> ingredients;
 
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "menu_id")
-    @JsonIgnore
+
     private Menu menu;
 
     @Column(name = "photo")

@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.util.Set;
 
 public class IngredientDAOImpl implements IngredientDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -63,9 +65,5 @@ public class IngredientDAOImpl implements IngredientDAO {
     @Transactional(propagation = Propagation.MANDATORY)
     public void addIngredient(Ingredient ingredient) {
         sessionFactory.getCurrentSession().save(ingredient);
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 }

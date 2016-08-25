@@ -9,6 +9,7 @@ import java.util.List;
 
 public class DishService {
 
+    @Autowired
     private DishDAO dishDAO;
 
     @Transactional
@@ -19,9 +20,5 @@ public class DishService {
     @Transactional
     public List<Dish> search(String pattern) {
         return dishDAO.search(pattern);
-    }
-    @Autowired
-    public void setDishDAO(DishDAO dishDAO) {
-        this.dishDAO = dishDAO;
     }
 }

@@ -22,6 +22,7 @@ public class Menu {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "id")
+    @JsonView(Views.Internal.class)
     private int id;
 
     @Column(name = "name")
@@ -31,6 +32,7 @@ public class Menu {
     @OneToMany(fetch= FetchType.EAGER, orphanRemoval=true, mappedBy="menu")
     @LazyCollection(LazyCollectionOption.FALSE)
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonView(Views.Internal.class)
     private List<Dish> dishList;
 
     public Menu(List<Dish> dishList, String name) {

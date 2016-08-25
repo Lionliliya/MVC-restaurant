@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,8 +15,8 @@ import java.util.List;
 
 public class DishDAOImpl implements DishDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
-
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
@@ -69,9 +70,5 @@ public class DishDAOImpl implements DishDAO {
         Query query = sessionFactory.getCurrentSession().createQuery("SELECT d FROM Dish d WHERE d.name LIKE :pattern", Dish.class);
         query.setParameter("pattern", "%" + pattern + "%");
         return (List<Dish>)query.getResultList();
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 }

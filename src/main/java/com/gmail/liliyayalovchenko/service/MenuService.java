@@ -11,6 +11,7 @@ import java.util.List;
 
 public class MenuService {
 
+    @Autowired
     private MenuDAO menuDAO;
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeService.class);
 
@@ -34,10 +35,4 @@ public class MenuService {
         LOGGER.info("Menu is got");
         return menu;
     }
-
-    @Autowired
-    public void setMenuDAO(MenuDAO menuDAO) {
-        this.menuDAO = menuDAO;
-    }
-
 }

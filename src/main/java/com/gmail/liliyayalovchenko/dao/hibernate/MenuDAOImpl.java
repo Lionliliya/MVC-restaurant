@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.util.List;
 
 public class MenuDAOImpl implements MenuDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -111,9 +113,5 @@ public class MenuDAOImpl implements MenuDAO {
         Session session = sessionFactory.getCurrentSession();
         Menu menu = session.load(Menu.class, id);
         return menu;
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 }

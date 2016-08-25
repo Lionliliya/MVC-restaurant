@@ -1,12 +1,19 @@
 package com.gmail.liliyayalovchenko.domain;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.gmail.liliyayalovchenko.web.JSON_View.Views;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.Proxy;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
+@Proxy(lazy = false)
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Waiter extends Employee {
 
@@ -14,6 +21,7 @@ public class Waiter extends Employee {
     @JoinColumn(name = "employee_id")
     @LazyCollection(LazyCollectionOption.FALSE)
     //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonView(Views.Internal.class)
     private List<Order> orderList;
 
     public List<Order> getOrderList() {

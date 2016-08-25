@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +16,10 @@ import java.util.List;
 
 public class WarehouseDAOImpl implements WarehouseDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
     private IngredientDAO ingredientDAO;
 
     @Override
@@ -117,11 +121,4 @@ public class WarehouseDAOImpl implements WarehouseDAO {
         return amount > 0;
     }
 
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-
-    public void setIngredientDAO(IngredientDAO ingredientDAO) {
-        this.ingredientDAO = ingredientDAO;
-    }
 }

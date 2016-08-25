@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class OrderDAOImpl implements OrderDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -104,9 +106,5 @@ public class OrderDAOImpl implements OrderDAO {
         Criteria criteria = session.createCriteria(Order.class);
         criteria.setProjection(Projections.max("orderNumber"));
         return (Integer) criteria.list().get(0);
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 }

@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,8 +17,8 @@ import java.util.List;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
-
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
@@ -111,8 +112,4 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 //        Query query = session.createQuery("select  e.firstName, e.secondName from Employee e");
 //        return null;
 //    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 }
