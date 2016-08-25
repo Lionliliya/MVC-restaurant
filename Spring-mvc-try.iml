@@ -6,6 +6,9 @@
         <fileset id="fileset2" name="Spring Application Context (2)" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/com/gmail/liliyayalovchenko/web/WebConfig.java</file>
         </fileset>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/gmail/liliyayalovchenko/web/configuration/WebConfig.java</file>
+        </fileset>
       </configuration>
     </facet>
     <facet type="web" name="Web Gradle : Spring-mvc-try-1.0.war">
